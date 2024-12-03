@@ -1,0 +1,34 @@
+fun main() {
+    println("Digite o Seu Nome")
+    val studentName = readLine()
+    println("Digite o Sua Escola")
+    val studentSchool = readLine()
+    println("Agora Digite Sua Média")
+    val studentAverage = readLine()!!.toFloat()
+
+    if (studentName != null) {
+        if (studentSchool != null) {
+            calculateAverage(studentName, studentSchool, studentAverage)
+        }
+    }
+}
+
+fun calculateAverage(student_name: String, student_school: String, student_average: Float) {
+    val averageStatus: AverageStatus
+    if (student_average >= 7) {
+        averageStatus = AverageStatus.APROVADO
+    } else if (student_average >= 4) {
+        averageStatus = AverageStatus.RECUPERACAO
+    } else {
+        averageStatus = AverageStatus.REPROVADO
+    }
+
+    println("Nome: $student_name")
+    println("Escola: $student_school")
+    println("Media: $student_average")
+    println("Situacao: $averageStatus")
+}
+
+enum class AverageStatus {
+    APROVADO, REPROVADO, RECUPERACAO
+}
